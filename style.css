@@ -139,3 +139,35 @@ footer a:hover {
   height: 3px;
   width: 60px;
 }
+
+/* Animação suave de subir e descer */
+@keyframes bounce-up-down {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Classe base para os ícones */
+.icone-animado {
+  display: inline-block;
+  animation: bounce-up-down 1s ease-in-out infinite;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  opacity: 0;
+}
+
+/* Controla os delays */
+.icone-1 {
+  animation-delay: 0s;
+}
+
+.icone-2 {
+  animation-delay: 0.5s;
+}
+
+.icone-3 {
+  animation-delay: 1s;
+}
