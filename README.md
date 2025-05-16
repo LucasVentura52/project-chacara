@@ -75,7 +75,7 @@ Apenas um navegador moderno.
 
 1. Clone ou baixe o projeto:
    ```bash
-   git clone https://github.com/seu-usuario/chacara-facil.git
+   git clone https://github.com/LucasVentura52/project-chacara.git
    ```
 
 2. Abra o arquivo `index.html` no navegador.
@@ -84,7 +84,7 @@ Apenas um navegador moderno.
 
 ## 🙋‍♂️ Autor
 
-Desenvolvido por **[Lucas Ventura]** como parte da disciplina de **[Empreendedorismo em Tecnologia]**.
+Desenvolvido por **Lucas Ventura** como parte da disciplina de **Empreendedorismo em Tecnologia**.
 
 ---
 
