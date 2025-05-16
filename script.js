@@ -17,21 +17,28 @@ if (unicoModal) {
     }
 
     fetch(arquivo)
-      .then(response => response.text())
-      .then(html => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const container = doc.querySelector('.container') || doc.body;
+  .then(response => response.text())
+  .then(html => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const container = doc.querySelector('.container') || doc.body;
 
-        if (container) {
-          bodyModal.innerHTML = container.innerHTML;
-        } else {
-          bodyModal.innerHTML = '<p class="text-danger">Conteúdo não encontrado.</p>';
-        }
-      })
-      .catch(() => {
-        bodyModal.innerHTML = '<p class="text-danger">Erro ao carregar conteúdo.</p>';
-      });
+    if (container) {
+      bodyModal.innerHTML = container.innerHTML;
+
+      const form = bodyModal.querySelector('form');
+      if (arquivo === 'anunciar.html' && form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          alert.success('Chácara anunciada com sucesso!');
+        });
+      }
+
+    } else {
+      bodyModal.innerHTML = '<p class="text-danger">Conteúdo não encontrado.</p>';
+    }
+  })
+
   });
 }
 
@@ -50,3 +57,45 @@ function checkScroll() {
 
 window.addEventListener('scroll', checkScroll);
 window.addEventListener('load', checkScroll);
+
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  showCloseButton: true,
+  customClass: {
+    popup: 'custom-toast'
+  }
+});
+
+const alert = {
+  success: (message) => {
+    Toast.fire({
+      icon: 'success',
+      title: message,
+      customClass: {
+        popup: 'toast-success'
+      }
+    });
+  },
+  error: (message) => {
+    Toast.fire({
+      icon: 'error',
+      title: message,
+      customClass: {
+        popup: 'toast-error'
+      }
+    });
+  },
+  warning: (message) => {
+    Toast.fire({
+      icon: 'warning',
+      title: message,
+      customClass: {
+        popup: 'toast-warning'
+      }
+    });
+  }
+};
