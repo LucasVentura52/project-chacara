@@ -117,6 +117,6 @@ function animarIcones() {
   });
 }
 
-setInterval(animarIcones, 20000);
+setInterval(animarIcones, 4000);
 
 window.addEventListener('load', animarIcones);
