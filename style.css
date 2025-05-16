@@ -1,8 +1,127 @@
+/* Tipografia e base */
+body {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  scroll-behavior: smooth;
+}
+
+/* Hero section com gradiente escurecido */
 .hero-section {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/img/banner.jpg') center center / cover no-repeat;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('assets/img/banner.jpg') center center / cover no-repeat;
   height: 75vh;
   color: white;
+  display: flex;
+  align-items: center;
 }
+
+/* Títulos */
 section h2 {
   color: #2d4b3d;
+  font-weight: 700;
+}
+
+/* Navbar moderna */
+.navbar .nav-link {
+  color: #2d4b3d !important;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  color: #198754 !important;
+}
+
+/* Botões com efeito hover */
+.btn-success {
+  background-color: #198754;
+  border-color: #198754;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-success:hover {
+  background-color: #157347;
+  transform: scale(1.02);
+}
+
+/* Cartões com sombra e hover */
+.card {
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Rodapé com ícones */
+footer a {
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #d1e7dd;
+}
+
+/* Animação fade-in refinada */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.9s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Delays para fade-in */
+.delay-0 {
+  animation-delay: 0s;
+}
+
+.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.delay-2 {
+  animation-delay: 0.4s;
+}
+
+.delay-3 {
+  animation-delay: 0.6s;
+}
+
+/* Animação ao aparecer no scroll */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.scroll-reveal.show {
+  opacity: 1;
+  transform: none;
+}
+
+/* Responsividade extra */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 1.75rem;
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+  }
+}
+
+/* Traço decorativo do título do sobre */
+#sobre-nos h2 span {
+  background-color: #198754;
+  height: 3px;
+  width: 60px;
 }

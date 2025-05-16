@@ -1,10 +1,10 @@
+const unicoModal = document.getElementById('unicoModal');
+const tituloModal = document.getElementById('unicoModalLabel');
+const bodyModal = document.getElementById('unicoModalBody');
 
-  const unicoModal = document.getElementById('unicoModal');
-  const tituloModal = document.getElementById('unicoModalLabel');
-  const bodyModal = document.getElementById('unicoModalBody');
-
+if (unicoModal) {
   unicoModal.addEventListener('show.bs.modal', event => {
-    const trigger = event.relatedTarget; // quem abriu o modal
+    const trigger = event.relatedTarget;
     const titulo = trigger.getAttribute('data-titulo') || 'Modal';
     const arquivo = trigger.getAttribute('data-arquivo');
 
@@ -33,3 +33,20 @@
         bodyModal.innerHTML = '<p class="text-danger">Erro ao carregar conteúdo.</p>';
       });
   });
+}
+
+const scrollElements = document.querySelectorAll('.scroll-reveal');
+
+function checkScroll() {
+  const triggerBottom = window.innerHeight * 0.9;
+
+  scrollElements.forEach(el => {
+    const boxTop = el.getBoundingClientRect().top;
+    if (boxTop < triggerBottom) {
+      el.classList.add('show');
+    }
+  });
+}
+
+window.addEventListener('scroll', checkScroll);
+window.addEventListener('load', checkScroll);
